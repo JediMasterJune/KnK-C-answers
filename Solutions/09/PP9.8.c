@@ -13,7 +13,7 @@ bool gameofCraps(int n, int point);
 
 int main(void)
 {
-    srand((unsigned) time(NULL));
+    srand((unsigned) clock(NULL));
     int win = 0, lose = 0;
     char choice = 'y';
     

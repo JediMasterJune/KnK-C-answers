@@ -12,7 +12,7 @@ int main(void)
     char position[10][10];
     bool blocked[4] = {false};
     
-    srand((unsigned) time(NULL));
+    srand((unsigned) clock(NULL));
     
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; ++j) {

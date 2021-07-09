@@ -23,7 +23,7 @@ void generateRandomWalk(char walk[10][10])
     int x = 0, y = 0;
     bool blocked[4] = {false}; //네 방향이 막혔는지 체크
     
-    srand((unsigned) time(NULL));
+    srand((unsigned) clock(NULL));
     
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; ++j) {

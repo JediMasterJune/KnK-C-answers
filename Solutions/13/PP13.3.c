@@ -26,7 +26,7 @@ int main(void)
                                "Nine", "Ten", "Jack", "Queen", "King", "Ace"};
     const char* suit_code[] = {"Clubs", "Diamonds", "Hearts", "Spades"};
     
-    srand((unsigned) time(NULL));
+    srand((unsigned) clock(NULL));
     
     printf("Enter number of cards in hand: ");
     scanf("%d", &num_cards);
