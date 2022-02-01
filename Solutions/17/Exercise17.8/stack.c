@@ -17,40 +17,64 @@ void stackOverflow(void)
     exit(EXIT_FAILURE);
 }
 
-stk pop(struct node* stk, stk num)
+void makeEmpty(struct node* stack)
 {
-    return 0;
+    while (stack != NULL) {
+        struct node* temp = stack;
+        stack = stack->next;
+        free(temp);
+    }
 }
 
-bool isEmpty(stk stack[], int* topP)
+bool isEmpty(struct node* stack)
 {
-    return (*topP == 0);
+    return (stack == NULL);
 }
 
-bool isFull(stk stack[], int* topP)
-{
-    return (*topP == STACK_SIZE - 1);
-}
+//struct node* isFull(struct node* stack)
+//{
+//}
 
-void push(stk stack[], int* topP, stk num)
+struct node* push(struct node* stack, stk num)
 {
-    if (!isFull(stack, topP)) {
-        stack[(*topP)++] = num;
+    struct node* new_node = malloc(sizeof(struct node));
+    if (new_node != NULL) {
+        struct node* cur = stack;
+        if (cur == NULL) {
+            cur = new_node;
+            stack = cur;
+        }
+        else {
+            while (cur->next != NULL) {
+                cur = cur->next;
+            }
+            cur->next = new_node;
+            cur = cur->next;
+        }
+        cur->next = NULL;
+        cur->value = num;
     }
     else {
         stackOverflow();
     }
+    return stack;
 }
 
-stk pop(stk stack[], int* topP)
+stk pop(struct node* stack)
 {
-    if (!isEmpty(stack, topP)) {
+    if (!isEmpty(stack)) {
         /*
         char temp = stack[*topP];
         stack[(*topP)--] = 0;
         return temp;
          */ // 실제로 배열을 비우지 않아도 된다.
-        return stack[--(*topP)]; //StackPointer를 1 감소시킨 후에 리턴
+        while (stack->next->next != NULL) {
+            stack = stack->next;
+        }
+        stk num = stack->next->value;
+        free(stack->next);
+        stack->next = NULL;
+        return num;
     }
     else {
         stackUnderflow();

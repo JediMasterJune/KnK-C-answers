@@ -5,33 +5,19 @@
 #include <stdlib.h>
 #include "stack.h"
 
-struct node {
-    int value;
-    struct node* next;
-};
-
-struct node* deleteFromList(struct node* list, int n);
-
 int main(void)
 {
+    struct node* stack = NULL;
+    stack = push(stack, 1);
+    stack = push(stack, 2);
+    stack = push(stack, 3);
+    stack = push(stack, 4);
+    stack = push(stack, 5);
+    pop(stack);
+    pop(stack);
+    for (struct node* i = stack; i != NULL; i = i->next) {
+        printf("%d\n", i->value);
+    }
     
     return 0;
-}
-
-struct node* deleteFromList(struct node* list, int n)
-{
-    struct node* cur;
-    for (cur = list; cur != NULL && cur->value != n; cur = cur->next) {
-        if (cur->next->value == n) { //중간
-            struct node* temp = cur->next;
-            cur->next = cur->next->next;
-            free(temp);
-            break;
-        }
-    }
-    if (cur == list) { //처음
-        list = cur->next;
-        free(cur);
-    }
-    return list;
 }

@@ -9,12 +9,16 @@
 #define STACK_SIZE 100
 
 typedef int stk;
+struct node {
+    stk value;
+    struct node* next;
+};
 
-bool isEmpty(stk stack[], int* topP);
-bool isFull(stk stack[], int* topP);
-void makeEmpty(int* topP);
-void push(stk stack[], int* topP, stk num);
-stk pop(stk stack[], int* topP);
+bool isEmpty(struct node* stack);
+//bool isFull(stk stack[], int* topP);
+void makeEmpty(struct node* stack);
+struct node* push(struct node* stack, stk num);
+stk pop(struct node* stack);
 void stackUnderflow(void);
 void stackOverflow(void);
 
