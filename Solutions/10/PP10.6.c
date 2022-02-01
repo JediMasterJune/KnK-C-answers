@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../15/PP15.5/stack.h"
+
 
 #define STACK_SIZE 100
 
@@ -92,6 +94,11 @@ void stackOverflow(void)
 {
     printf("Stack Overflow~!\n");
     exit(EXIT_FAILURE);
+}
+
+bool isFull(struct node* stk)
+{
+    return 0;
 }
 
 void makeEmpty(int* topP)
