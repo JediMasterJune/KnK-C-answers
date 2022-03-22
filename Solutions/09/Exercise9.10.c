@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-#define LENGTH (sizeof(arr)/sizeof(arr[0]))
+#define RANGE (sizeof(arr)/sizeof(arr[0]))
 
 int arrayMax(int n, int a[n]);
 double arrayAverage(int n, int a[n]);
@@ -13,9 +13,9 @@ int arrayPositiveCount(int n, int a[n]);
 int main(void)
 {
     int arr[10] = {1, 4, 5, 6, 7, 13, 765, 39, 485, 341};
-    printf("Maximum : %d\n", arrayMax(LENGTH, arr));
-    printf("Average : %f\n", arrayAverage(LENGTH, arr));
-    printf("Positive Count : %d\n", arrayPositiveCount(LENGTH, arr));
+    printf("Maximum : %d\n", arrayMax(RANGE, arr));
+    printf("Average : %f\n", arrayAverage(RANGE, arr));
+    printf("Positive Count : %d\n", arrayPositiveCount(RANGE, arr));
     return 0;
 }
 

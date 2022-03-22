@@ -11,7 +11,7 @@ struct node {
 };
 
 
-struct node* deleteFromList(struct node* p_list, int n);
+void deleteFromList(struct node** p_list, int n);
 
 int main(void)
 {
@@ -19,10 +19,10 @@ int main(void)
     return 0;
 }
 
-struct node* deleteFromList(struct node* list, int n)
+void deleteFromList(struct node** p_list, int n)
 {
     struct node* cur;
-    for (cur = list; cur != NULL && cur->value != n; cur = cur->next) {
+    for (cur = *p_list; cur != NULL && cur->value != n; cur = cur->next) {
         if (cur->next->value == n) { //중간
             struct node* temp = cur->next;
             cur->next = cur->next->next;
@@ -30,9 +30,9 @@ struct node* deleteFromList(struct node* list, int n)
             break;
         }
     }
-    if (cur == list) { //처음
-        list = cur->next;
+    if (cur == *p_list) { //처음
+        *p_list = cur->next;
         free(cur);
     }
-    return list;
+//    return p_list;
 }

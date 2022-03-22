@@ -5,14 +5,14 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#define LENGTH (sizeof(grades)/sizeof(grades[0]))
+#define N (sizeof(grades)/sizeof(grades[0]))
 
 float compute_GPA(char grades[], int n);
 
 int main(void)
 {
     char grades[] = {'A', 'A', 'A', 'A', 'B', 'F'};
-    printf("average : %f\n", compute_GPA(grades, LENGTH));
+    printf("average : %f\n", compute_GPA(grades, RANGE));
     return 0;
 }
 
