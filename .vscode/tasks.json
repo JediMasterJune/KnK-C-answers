@@ -6,8 +6,9 @@
             "command": "C:/MinGW/bin/gcc.exe",
             "args": [
                 "-fdiagnostics-color=always",
+                // "-I${workspaceFolder}/Solutions/includes",
                 "-g",
-                "${file}",
+                "${fileDirname}\\**.c",
                 "-o",
                 "${workspaceFolder}\\Out\\${fileBasenameNoExtension}.exe"
             ],
